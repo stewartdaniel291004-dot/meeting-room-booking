@@ -1,0 +1,17 @@
+/* "Export PDF" on the analytics page uses the browser's print-to-PDF; hide the app chrome. */
+@media print {
+  .no-print,
+  .MuiDrawer-root,
+  aside {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+}

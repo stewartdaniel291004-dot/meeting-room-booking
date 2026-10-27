@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "backend: run API",
+      "type": "shell",
+      "command": "dotnet run --project MeetingRoomBooking.Api --launch-profile http",
+      "options": {
+        "cwd": "${workspaceFolder}/backend",
+        "env": { "PATH": "${env:USERPROFILE}\\.dotnet;${env:PATH}" }
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": { "regexp": "^__never_matches__$" },
+        "background": { "activelyMatching": true, "beginsPattern": "Building", "endsPattern": "Now listening on" }
+      }
+    },
+    {
+      "label": "frontend: dev server",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": { "regexp": "^__never_matches__$" },
+        "background": { "activelyMatching": true, "beginsPattern": "vite", "endsPattern": "Local:" }
+      }
+    },
+    {
+      "label": "start app",
+      "dependsOn": ["backend: run API", "frontend: dev server"],
+      "dependsOrder": "parallel"
+    },
+    {
+      "label": "backend: test",
+      "type": "shell",
+      "command": "dotnet test",
+      "options": {
+        "cwd": "${workspaceFolder}/backend",
+        "env": { "PATH": "${env:USERPROFILE}\\.dotnet;${env:PATH}" }
+      },
+      "group": "test",
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

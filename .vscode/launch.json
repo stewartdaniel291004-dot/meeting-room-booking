@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch app in Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "start app"
+    },
+    {
+      "name": "Open Swagger in Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5080/swagger",
+      "webRoot": "${workspaceFolder}/frontend"
+    }
+  ]
+}
